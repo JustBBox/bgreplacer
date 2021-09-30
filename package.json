@@ -1,0 +1,11 @@
+{
+  "name": "bgreplacer",
+  "version": "0.0.0",
+  "description": "background replacer api, for images with the same size.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "JustBBox",
+  "license": "MIT"
+}
