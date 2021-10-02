@@ -1,0 +1,8 @@
+# Dependency directories
+node_modules/
+npm-debug.log
+src/images/*
+#MEH build directory
+/build
+#IDE
+.idea/
