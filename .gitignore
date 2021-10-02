@@ -6,3 +6,5 @@ src/images/*
 /build
 #IDE
 .idea/
+#DB must be empty
+jpegDB

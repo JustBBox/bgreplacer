@@ -18,5 +18,5 @@ module.exports = async (req, res) => {
     });
     File.encoding = req.file.encoding;
     File.mimetype = req.file.mimetype;
-    return res.json(File);
+    return res.json({ id: File.id});
 };
