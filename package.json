@@ -4,9 +4,7 @@
   "description": "background replacer api, for images with the same size.",
   "main": "index.js",
   "scripts": {
-    "pre": "npm i",
-    "start": "node index.js",
-    "mocha": "mocha ./test/*.js"
+    "start": "node index.js"
   },
   "author": "JustBBox",
   "license": "MIT",

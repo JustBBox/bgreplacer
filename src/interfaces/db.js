@@ -14,8 +14,7 @@ class Database {
                         console.log('could not create table main: ', err)
                     }
                 })
-                // this.data.close();
-                console.log('Connected to sqlite table main');
+                // console.log('Connected to sqlite table main');
             }
         });
     }

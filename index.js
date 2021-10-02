@@ -1,11 +1,16 @@
 const path = require('path');
 const express = require('express');
-const { PORT, db } = require(path.resolve(__dirname, 'src', 'config'));
+const { db } = require(path.resolve(__dirname, 'src', 'config'));
 const { router } = require(path.resolve(__dirname, 'src', 'router'));
 
 const app = express();
+try {
+    const port = process.env.PORT || 8080;
+    app.use('/', router);
+    app.listen(port, '127.0.0.1');
+} catch (err) {
+    console.log(`error: ${err.message}`)
+}
 
-app.use('/', router);
-app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`);
-}).on('close', () => db.close());
+
+
