@@ -11,7 +11,8 @@ router.post('/upload',
         upload.single('image'),
         api.postJpeg,
         (error, req, res, next) => {
-        res.status(400).send({ error: error.message });
+        res.statusCode = 400;
+        res.send({ error: error.message });
 });
 
 router.get('/list', api.getJpegs);

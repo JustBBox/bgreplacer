@@ -8,6 +8,7 @@ module.exports = async (req, res) => {
         // return res.json(db.findOne(svgId).toPublicJSON());
     }
     catch (err) {
-        res.status(400).send(`Bad request`);
+        res.statusCode = 400;
+        res.send(`Bad request`);
     }
 };

@@ -42,11 +42,15 @@ module.exports = async (req, res) => {
             replaceBackground(frontRS, backRS, queryObject.color, queryObject.threshold ).then(
                 (readableStream) => {
                     readableStream.pipe(res);
-                }).catch((err) => res.statusCode(400).send({error: err.message}));
+                }).catch((err) => {
+                res.statusCode = 400;
+                res.send({error: err.message})
+            });
         }
     }
     catch (err) {
-        return res.status(400).send({ error: err.message });
+        res.statusCode = 400;
+        return res.send({ error: err.message });
     }
 
 };
