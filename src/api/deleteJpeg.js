@@ -4,8 +4,7 @@ module.exports = async (req, res) => {
     const queryId = req.params.id;
     try {
         await db.remove(queryId);
-        res.send(`Jpeg with id = ${queryId} was removed`)
-        // return res.json(db.findOne(svgId).toPublicJSON());
+        res.send({id: queryId})
     }
     catch (err) {
         res.statusCode = 400;
