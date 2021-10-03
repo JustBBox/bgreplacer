@@ -8,22 +8,15 @@ const express = require('express');
 
 const app = express();
 try {
-
-    const sqlite3 = require('sqlite3');
-    let data = new sqlite3.Database(path.resolve(__dirname, 'jpegDB'), (err) => {
-        if (err) {
-            console.log('Could not open/create database', err)
-        } else {
-            // Creating the main table (id, uploadedAt, size, originalFilename)
-            data.run('CREATE TABLE IF NOT EXISTS main(id TEXT PRIMARY KEY, uploadedAt INTEGER, size INTEGER, originalFilename TEXT)', (err) => {
-                if (err) {
-                    console.log('could not create table main: ', err)
-                }
-            })
-            // console.log('Connected to sqlite table main');
-        }
-    });
-
+    async function createKeyv() {
+        const keyv = require('keyv');
+        let storage = new keyv({serialize: JSON.stringify, deserialize: JSON.parse});
+        await storage.set('kek', '111');
+        await storage.set('kok', '22');
+        await storage.set('lel', '3333');
+        return storage;
+    }
+    createKeyv().then((data) => console.log(data));
     const port = process.env.PORT || 8080;
     const host = '127.0.0.1';
 
@@ -36,6 +29,7 @@ try {
         res.statusCode = 401;
         res.send({id: 'get /list || i am debugging you right now'});
     });
+
     app.get('/image/:id', (req, res) => {
         res.statusCode = 402;
         res.send({id: 'get /image/:id || i am debugging you right now'});
